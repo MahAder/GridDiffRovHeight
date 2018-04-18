@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="items_recycler_view_paddings">8dp</dimen>
+</resources>
