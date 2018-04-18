@@ -5,6 +5,7 @@ import android.graphics.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by Taras on 12.02.2018.
@@ -46,7 +47,14 @@ public class Model {
         Random randomGreen = new Random();
         List<Item> itemsNextPage = new ArrayList<>();
         for(int i = 0; i < itemsPerPage; i++){
-            itemsNextPage.add(new Item(Color.argb(255, randomRed.nextInt(256), randomGreen.nextInt(256), randomBlue.nextInt(256))));
+            double cofHeight = ThreadLocalRandom.current().nextDouble(0.5, 1.5);
+
+
+            if(i / 3 <= 2 && i / 3 >= 1){
+                cofHeight = ThreadLocalRandom.current().nextDouble(0.5, 0.9);
+            }
+
+            itemsNextPage.add(new Item(Color.argb(255, randomRed.nextInt(256), randomGreen.nextInt(256), randomBlue.nextInt(256)), cofHeight));
         }
 
         items.addAll(itemsNextPage);

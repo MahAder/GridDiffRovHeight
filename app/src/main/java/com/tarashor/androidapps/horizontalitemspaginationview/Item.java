@@ -7,10 +7,12 @@ package com.tarashor.androidapps.horizontalitemspaginationview;
 public class Item {
     private int color;
     private String name;
+    private double heightCof;
 
-    public Item(int color) {
+    public Item(int color, double heightCof) {
         this.color = color;
         this.name = String.valueOf(color);
+        this.heightCof = heightCof;
     }
 
     public int getColor() {
@@ -19,5 +21,9 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public double getHeightCof() {
+        return heightCof;
     }
 }

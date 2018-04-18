@@ -124,13 +124,6 @@ public class StagedGridItemsActivity extends AppCompatActivity {
         @Override
         protected RecyclerView.ViewHolder createItemViewHolder(ViewGroup parent) {
             View view = PaginationAdapter.createViewFromLayout(parent, R.layout.item_layout);
-            int height = 200;
-            int width = 200;
-            double cofHeight = ThreadLocalRandom.current().nextDouble(0.5, 1.5);
-            double cofWidth = ThreadLocalRandom.current().nextDouble(0.5, 1.5);
-
-            //view.getLayoutParams().width = (int) (width * cofWidth);
-            view.findViewById(R.id.item_color_view).getLayoutParams().height = (int) (height * cofHeight);
 
             return new GridItemsActivity.ItemViewHolder(view);
         }
@@ -138,6 +131,9 @@ public class StagedGridItemsActivity extends AppCompatActivity {
         @Override
         protected void bindItemViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
             GridItemsActivity.ItemViewHolder itemViewHolder = (GridItemsActivity.ItemViewHolder) viewHolder;
+            int height = 200;
+            viewHolder.itemView.findViewById(R.id.item_color_view).getLayoutParams().height = (int) (height * items.get(position).getHeightCof());
+
             itemViewHolder.bind(items.get(position));
         }
 
